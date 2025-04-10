@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Chat for Travelask</title>
+  <script type="module" crossorigin src="/assets/index-Rquh3rOE.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-GNbxSGLu.css">
+</head>
+<body>
+<div id="app">
+    <button class="open-chat-btn btn" id="open-chat">Чат</button>
+    <div class="modal">
+        <div class="modal__overlay">
+            <div class="content">
+                <div class="chat hidden" id="chat">
+                    <div class="chat__body">
+                        <div class="decor-line"></div>
+                        <div class="chat__header header-chat">
+                            <div class="header-chat__container">
+                                <div class="header-chat__user">
+                                    <div class="header-chat__avatar avatar avatar_big">
+                                        <img alt="avatar" src="./img/avatars/1.jpg">
+                                    </div>
+                                    <div class="header-chat__titles">
+                                        <div class="header-chat__name" id="username">Токсикова Ольга</div>
+                                        <div class="header-chat__city" id="user-city">Днепропетровск</div>
+                                    </div>
+                                </div>
+                                <div class="header-chat__rating">
+                                    <fieldset>
+                                            <span class="rating">
+                                                <input
+                                                        class="rating__input"
+                                                        id="rating__star-5"
+                                                        name="rating"
+                                                        type="radio"
+                                                        value="5"
+                                                />
+                                                <label
+                                                        class="rating__label"
+                                                        for="rating__star-5"
+                                                ></label>
+                                                <input
+                                                        class="rating__input"
+                                                        id="rating__star-4"
+                                                        name="rating"
+                                                        type="radio"
+                                                        value="4"
+                                                />
+                                                <label
+                                                        class="rating__label"
+                                                        for="rating__star-4"
+                                                ></label>
+                                                <input
+                                                        class="rating__input"
+                                                        id="rating__star-3"
+                                                        name="rating"
+                                                        type="radio"
+                                                        value="3"
+                                                />
+                                                <label
+                                                        class="rating__label"
+                                                        for="rating__star-3"
+                                                ></label>
+                                                <input
+                                                        class="rating__input"
+                                                        id="rating__star-2"
+                                                        name="rating"
+                                                        type="radio"
+                                                        value="2"/>
+                                                <label
+                                                        class="rating__label"
+                                                        for="rating__star-2"
+                                                ></label>
+                                                <input
+                                                        class="rating__input"
+                                                        id="rating__star-1"
+                                                        name="rating"
+                                                        type="radio" value="1"/>
+                                                <label
+                                                        class="rating__label"
+                                                        for="rating__star-1"
+                                                ></label>
+                                            </span>
+                                    </fieldset>
+                                </div>
+                                <div class="header-chat__btn-wrapper">
+                                    <button class="chat__close-btn" id="close-chat-btn">&times;</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="chat__messages messages-chat">
+                            <div class="messages-chat__container" id="messages-list">
+                            </div>
+                        </div>
+                        <div class="chat__footer footer-chat">
+                            <div class="footer-chat__container">
+                                <div class="footer-chat__avatar avatar avatar_big">
+                                    <img alt="avatar" src="./img/avatars/2.jpg">
+                                </div>
+                                <div class="footer-chat__message-text">
+                                    <form class="footer-chat__form" id="form">
+                                       <textarea
+                                               class="footer-chat__textarea"
+                                               cols="30"
+                                               id="message-text"
+                                               name="message"
+                                               placeholder="Введите сообщение"
+                                               rows="4"></textarea>
+                                        <button
+                                                class="footer-chat__btn btn"
+                                                id="send-message-btn"
+                                        >
+                                            Отправить
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
