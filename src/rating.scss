@@ -1,0 +1,40 @@
+
+fieldset {
+  border: 0;
+}
+
+.rating {
+  font-size: 200%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.rating__input {
+  position: absolute;
+  visibility: hidden;
+}
+
+.rating__label {
+  padding: 0 2px;
+  cursor: pointer;
+  color: var(--elements-color);
+}
+
+.rating__label:before {
+  content: '\2605';
+}
+
+.rating__input:checked ~ .rating__label {
+  color: var(--rating-hover);
+}
+
+.rating:hover > .rating__label {
+  opacity: 0.4;
+}
+
+.rating:hover > .rating__label:hover,
+.rating__label:hover ~ .rating__label {
+  opacity: 1;
+  color: var(--rating-hover);
+  text-shadow: 0 0 6px;
+}
