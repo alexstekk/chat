@@ -78,9 +78,16 @@ function initApp() {
 }
 
 /**
- * Дальше все функции названы логично и просто
+ * Все функции названы логично и просто. Рейтинг только визуально работает, т.к. неясна логика работы.
+ * Проект особо не рефакторил. Жду обратной связи. Спасибо.
+ *
+ * Модалка из DOM не выпиливается.
+ *
+ * Сообщения сохраняются в localStorage и загружаются оттуда же при инициализации
+ *
  *
  */
+
 function handleFormSubmit(e) {
     e.preventDefault();
     const message = e.target.message.value.trim() ?? '';
@@ -98,14 +105,15 @@ function fillUserInfo() {
     }
 }
 
+// Отправку по Enter отключил, т.к. нужно писать доп. обработчики
 function handleSendOnEnter(e) {
-    if (e.key === 'Enter') {
-        const message = form.message.value.trim() ?? '';
-        if (message) {
-            sendMessage(message);
-            form.reset();
-        }
-    }
+//     if (e.key === 'Enter') {
+//         const message = form.message.value.trim() ?? '';
+//         if (message) {
+//             sendMessage(message);
+//             form.message.value = '';
+//         }
+//     }
 }
 
 function sendMessage(messageText) {
