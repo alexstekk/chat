@@ -85,6 +85,7 @@ messageText?.addEventListener('keyup', handleTextAreaHeight);
  * todo
  * removeEventListeners
  * code  splitting
+ * refactor
  *
  * Жду обратной связи. Спасибо.
  */
