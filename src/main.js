@@ -82,6 +82,9 @@ messageText?.addEventListener('keyup', handleTextAreaHeight);
  *
  * Отправку по Enter отключил на данный момент
  *
+ * Можно было бы написать всё приложение в стиле функции renderMessage, чтобы в index.html
+ * был только один div#app, но не стал так делать в целях экономии времени
+ *
  * todo
  * removeEventListeners
  * code  splitting
