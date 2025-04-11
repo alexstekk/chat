@@ -62,12 +62,32 @@ const username = document.getElementById('username');
 const userCity = document.getElementById('user-city');
 
 // ATTACH LISTENERS
-document?.addEventListener('DOMContentLoaded', initApp);
+document.addEventListener('DOMContentLoaded', initApp);
 form?.addEventListener('submit', handleFormSubmit);
 openChatBtn?.addEventListener('click', handleOpenModal);
 closeChatBtn?.addEventListener('click', handleCloseModal);
 document.addEventListener('keydown', handleSendOnEnter);
-messageText?.addEventListener('keyup', handleTextAreaHeight)
+messageText?.addEventListener('keyup', handleTextAreaHeight);
+
+/**
+ * Все функции названы логично и по смыслу.
+ *
+ * Рейтинг только визуально работает, без логики.
+ *
+ * Проект особо не рефакторил.
+ *
+ * Модалка из DOM не выпиливается.
+ *
+ * Сообщения сохраняются в localStorage и загружаются оттуда же при инициализации.
+ *
+ * Отправку по Enter отключил на данный момент
+ *
+ * todo
+ * removeEventListeners
+ * code  splitting
+ *
+ * Жду обратной связи. Спасибо.
+ */
 
 // INIT APP
 function initApp() {
@@ -76,17 +96,6 @@ function initApp() {
     renderAllMessages(messages);
     scrollToLastMessage();
 }
-
-/**
- * Все функции названы логично и просто. Рейтинг только визуально работает, т.к. неясна логика работы.
- * Проект особо не рефакторил. Жду обратной связи. Спасибо.
- *
- * Модалка из DOM не выпиливается.
- *
- * Сообщения сохраняются в localStorage и загружаются оттуда же при инициализации
- *
- *
- */
 
 function handleFormSubmit(e) {
     e.preventDefault();
@@ -105,7 +114,6 @@ function fillUserInfo() {
     }
 }
 
-// Отправку по Enter отключил, т.к. нужно писать доп. обработчики
 function handleSendOnEnter(e) {
 //     if (e.key === 'Enter') {
 //         const message = form.message.value.trim() ?? '';
@@ -120,7 +128,7 @@ function sendMessage(messageText) {
 
     isSending = true;
     sendMessageBtn.disabled = true;
-    sendMessageBtn.innerText = 'Отправляем...'
+    sendMessageBtn.innerText = 'Отправляем...';
 
     const newMessage = {
         id: Math.floor(Math.random() * 100),
@@ -142,17 +150,18 @@ function sendMessage(messageText) {
 
 
     setTimeout(() => {
-        setMessagesFromLocalStorage(messages)
+        setMessagesToLocalStorage(messages)
         renderAllMessages(messages);
         scrollToLastMessage();
         paintNodeForAWhile(messageList?.lastElementChild, 'painted', 2000);
         sendMessageBtn.disabled = false;
+        sendMessageBtn.innerText = 'Отправить';
         isSending = false;
     }, 1500);
 
 
 }
-
+// считает количество строк в поле, если больше 4, то увеличиваем до 7
 function handleTextAreaHeight(e) {
     const message = e.target.value;
     const lines = message.split(/\r|\r\n|\n/);
@@ -178,7 +187,7 @@ function handleOpenModal() {
 
 function renderAllMessages(messages) {
     messageList.innerHTML = '';
-    messages.forEach(msg => renderMessage((msg)));
+    messages?.forEach(msg => renderMessage((msg)));
 }
 
 function renderMessage(message) {
@@ -229,7 +238,7 @@ function getMessagesFromLocalStorage() {
     }
 }
 
-function setMessagesFromLocalStorage(messages) {
+function setMessagesToLocalStorage(messages) {
     localStorage.setItem(LOCALSTORAGE_MESSAGES_KEY, JSON.stringify(messages))
 }
 
