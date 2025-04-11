@@ -7,7 +7,6 @@ Web app chat with Vanilla JS
 - Store messages in LocalStorage
 - Spot on message, that you've just send
 - Dynamic height of textarea
--
 
 ## Live
 
